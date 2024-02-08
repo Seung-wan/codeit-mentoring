@@ -48,6 +48,14 @@ export const password = document.querySelector('#sign_password');
 export const emailError = document.querySelector('#error_email');
 export const passwordError = document.querySelector('#error_password');
 export const eyeButton = document.querySelector('.eye_button');
+
+const $ = (selector) => document.querySelector(selector);
+
+export const email = $('#sign_email');
+export const password = $('#sign_password');
+export const emailError = $('#error_email');
+export const passwordError = $('#error_password');
+export const eyeButton = $('.eye_button');
 ```
 
 ### is-\*, has-\* prefix

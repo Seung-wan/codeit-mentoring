@@ -9,6 +9,18 @@
 
 ## part1 코드 돌아보기
 
+### html lang 속성
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FAQ</title>
+  </head>
+</html>
+```
+
 ### 뭔가 이상한데
 
 ```html

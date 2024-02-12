@@ -5,6 +5,7 @@
 - 경험했던 기술스택
 - React 컨벤션 조금만 더 보기
 - 코드 리뷰 같이 보기
+- 개발 공부 이야기
 
 ## 경험했던스택
 
@@ -12,12 +13,12 @@
 
 - HTML
 - CSS, SCSS(Module), TailwindCSS, Styled-Components, Emotion, Vanilla Extract
-- JavaScript
-- TypeScript
+- JavaScript, TypeScript
 - React, Next.js
 - Vue, Nuxt.js
 - Express, Nest.js
 - React-Query, Redux, Recoil, Pinia
+- AWS, Docker
 - 그 외에 다양한 라이브러리들
 
 ## React 컨벤션 조금만 더 보기
@@ -295,4 +296,17 @@ return (
 )
 ```
 
-- 조건부 렌더링은 다양하게 활용할 수 있다
+## 개발 공부 이야기
+
+### 저는 처음에...
+
+- 무작정 프로젝트 하기
+  - 개발 커뮤니티 만들기 (게시판, 채팅)
+  - React, TypeScript, Express, socket
+  - 망했지만 배운 건 있다
+
+### 공부가 어려운 건 당연하다
+
+- 공부는 정말 고통스럽다
+- 조금 느리더라도 제대로 가는게 중요하다
+- 남들과 비교할 필요 없다

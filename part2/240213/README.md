@@ -2,8 +2,23 @@
 
 ## 목차
 
+- 경험했던 기술스택
 - React 컨벤션 조금만 더 보기
 - 코드 리뷰 같이 보기
+
+## 경험했던스택
+
+### 저는 이런 기술들을 써봤어요
+
+- HTML
+- CSS, SCSS(Module), TailwindCSS, Styled-Components, Emotion, Vanilla Extract
+- JavaScript
+- TypeScript
+- React, Next.js
+- Vue, Nuxt.js
+- Express, Nest.js
+- React-Query, Redux, Recoil, Pinia
+- 그 외에 다양한 라이브러리들
 
 ## React 컨벤션 조금만 더 보기
 
@@ -121,3 +136,163 @@ return (
   </Routes>
 )
 ```
+
+## 코드리뷰 같이 보기
+
+### 계속 티키타카하기
+
+![Alt text](comment.png)
+
+- 기본적으로는 깃허브를 이용한 비동기 커뮤니케이션
+- 필요하다면 DM으로
+
+### 리뷰는 모두 반영할 필요가 없다
+
+- 나와 생각이 다르다면?
+- 현실적으로 반영하기
+
+### 리액트는 첫 렌더링때 하얗다
+
+- 처음에는 데이터가 없어요
+- 데이터가 없을때는...
+  - Loading Spinner
+  - Skeleton
+  - empty
+
+### 상수는 바깥쪽에
+
+```js
+function Component(id) {
+  const TEST_ID = 'test@codeit.com';
+  const USERS = ['kim', 'yu'];
+
+  useEffect(() => {
+    if(id === TEST_ID) {
+      ...
+    }
+  }, [])
+
+  return {
+    <ul>
+      {USERS.map(user => <li key={user.id}>{user.name}</li>)}
+    </ul>
+  }
+}
+```
+
+### noscript가 뭐지?
+
+```html
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+```
+
+### YAGNI
+
+- 미리 할 필요는 없다.
+- 그러나 미리 할 필요도 있다.
+- [참고](https://johngrib.github.io/wiki/jargon/yagni/)
+
+### 변수명은 데이터 형식에 따라서도 달라진다
+
+```js
+const [folderLinks, setFolderLinks] = useState([]);
+const [folderOwner, setFolderOwner] = useState([]);
+const [folderName, setFolderName] = useState([]);
+```
+
+### useEffect는 하나의 일만 해요
+
+```js
+useEffect(() => {
+  const fetchFolder = async () => {
+    const { folder } = await getFolder();
+    const { links } = folder;
+    const { name, owner } = folder;
+
+    setFolderLinks(links);
+    setFolderOwner(owner);
+    setFolderName(name);
+  };
+
+  const fetchUser = async () => {
+    const userInfo = await getUser();
+    const { email, name, profileImageSource } = userInfo;
+
+    setUser({ email, name, profileImageSource });
+  };
+
+  fetchFolder();
+  fetchUser();
+}, []);
+```
+
+### props를 넘겨줄 때는
+
+- 뭐가 더 좋을까?
+- 무슨 차이가 있을까?
+
+```js
+<Card
+  imgSrc={item.imageSource}
+  title={item.title}
+  description={item.description}
+  time={item.createdAt}
+  url={item.url}
+/>
+
+<Card {...item} />
+```
+
+### 리스트를 렌더링할 때 key
+
+```js
+  {items.map((item) => (
+    <Card key={item.createdAt}
+  ))}
+```
+
+- 유니크해야한다
+
+### StrictMode
+
+```js
+<StrictMode>
+  <App />
+</StrictMode>
+```
+
+- 어떤 용도로 쓰는거지?
+
+### 조건부 렌더링
+
+```js
+function LuckyBox({ isLogin }) {
+  if (!isLogin) {
+    return null;
+  }
+
+  return <div>LuckyBox!!!</div>;
+}
+```
+
+```js
+return (
+  {isAdmin && <button type='button'>돈복사</button>}
+
+  {isAdult ? <div>술</div> : <div>음료</div>}
+
+  {isAdult && <div>술</div>}
+  {!isAdult && <div>음료</div>}
+
+  <Condition
+    expression={folders.length > 0}
+    then={<Folders items={folders} />}
+    else={<NotFound />}
+  />
+)
+```
+
+- 조건부 렌더링은 다양하게 활용할 수 있다

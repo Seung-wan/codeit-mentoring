@@ -23,6 +23,20 @@
 
 ## React 컨벤션 조금만 더 보기
 
+### 절대 경로를 사용해요
+
+```js
+import { useState } from 'react';
+
+import UserList from '../../../../../components/user/user-list/user-list';
+```
+
+```js
+import { useState } from 'react';
+
+import UserList from '@/components/user/user-list/user-list';
+```
+
 ### import도 순서가 있어요
 
 - builtin
@@ -159,6 +173,7 @@ return (
   - Loading Spinner
   - Skeleton
   - empty
+- 동작에 대한 반응이 없으면 유저는 이상하게 느껴요
 
 ### 상수는 바깥쪽에
 

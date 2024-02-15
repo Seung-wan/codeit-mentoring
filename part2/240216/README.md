@@ -9,7 +9,7 @@
 - 코드 리뷰 같이 보기
 - 개발자로서의 마음가짐
 
-### custom hook 만들기
+## custom hook 만들기
 
 - 커스텀훅이라는 용어가 낯설지만... part1에서도 우리는 해본적이 있다.
   - 자바스크립트 모듈화
@@ -52,7 +52,7 @@ function StatusBar() {
 }
 ```
 
-### httpClient 만들기
+## httpClient 만들기
 - http 통신을 도와주는 매개체
 - Next13에서는 fetch를 쓰지만...
 - axios, ky
@@ -67,3 +67,16 @@ const result4 = httpClient.delete('/users/1');
   - 구체적인 구현에 의존하지 않게 만든다
   - Inversion of Control
   - Dependency Inversion Principle
+
+ ## 환경변수(Environment Variables) 만들기
+ - 환경변수란?
+ - 프로젝트나 번들러마다 다르다
+
+```env
+REACT_APP_API_BASE_URL=https://domain.com
+...
+```
+
+## 코드 리뷰 같이 보기
+
+## 개발자로서의 마음가짐

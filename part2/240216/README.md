@@ -53,6 +53,7 @@ function StatusBar() {
 ```
 
 ## httpClient 만들기
+
 - http 통신을 도와주는 매개체
 - Next13에서는 fetch를 쓰지만...
 - axios, ky
@@ -63,14 +64,17 @@ const result2 = httpClient.post('/users', { id, email });
 const result3 = httpClient.put('/users/1', { description });
 const result4 = httpClient.delete('/users/1');
 ```
+
 - 왜 axios를 그대로 사용하지 않을까?
   - 구체적인 구현에 의존하지 않게 만든다
   - Inversion of Control
   - Dependency Inversion Principle
 
- ## 환경변수(Environment Variables) 만들기
- - 환경변수란?
- - 프로젝트나 번들러마다 다르다
+## 환경변수(Environment Variables) 만들기
+
+- 환경변수란?
+- local, development, production
+- 프로젝트나 번들러마다 다르다
 
 ```env
 REACT_APP_API_BASE_URL=https://domain.com
@@ -79,4 +83,52 @@ REACT_APP_API_BASE_URL=https://domain.com
 
 ## 코드 리뷰 같이 보기
 
+### 에러처리는 어떻게?
+
+- 에러가 발생하면 어떻게 해야할까
+
+```js
+const getUser = async () => {
+  const response = await fetch('');
+
+  if (response.ok === false) {
+    throw new Error('...');
+  }
+
+  const res = await response.json();
+  return res;
+};
+
+function Component() {
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await getUser();
+      } catch (error) {
+        // TODO: Error Handling
+        // ...
+      }
+    };
+  }, []);
+}
+```
+
+### ...
+
 ## 개발자로서의 마음가짐
+
+### 우리는 프로다
+
+- 겸손 / 정리 / 메모 / 객관화
+- 원칙(TDD / OOP / FP / Pair / CI) + 행동(도전 / Agile)
+- 품질
+- 스케쥴링 / 시간관리
+- 독서
+- 오픈소스 기여
+
+### 팀, 사람
+
+- 큰일은 작은 일을 하는 작은 팀들의 협업으로 이루어진다
+- 팀 = 사람
+- 외부 방해는 당연한다 (All at once / Slack / 도움 요구)
+- 개발에 영웅은 없다

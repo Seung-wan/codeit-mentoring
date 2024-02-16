@@ -86,6 +86,9 @@ REACT_APP_API_BASE_URL=https://domain.com
 ### 에러처리는 어떻게?
 
 - 에러가 발생하면 어떻게 해야할까
+  - retry
+  - error message(popup, toast, text)
+  - error page
 
 ```js
 const getUser = async () => {
@@ -113,7 +116,34 @@ function Component() {
 }
 ```
 
-### ...
+### 로딩 처리는 어떻게?
+
+- query
+  - Spinner
+  - Skeleton
+  - null
+- mutation
+  - Spinner
+  - null
+
+### let 줄이기
+- const, const, const
+  
+```js
+const handleLoadProfile = async () => {
+  let result;
+  try {
+    setNoneProfile(false);
+    result = await getProfile();
+  } catch (error) {
+    setNoneProfile(true);
+    return;
+  }
+  const { email, profileImageSource } = result;
+  setUserEmail(email);
+  setUserProfileImgSrc(profileImageSource);
+};
+```
 
 ## 개발자로서의 마음가짐
 

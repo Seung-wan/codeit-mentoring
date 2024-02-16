@@ -13,8 +13,8 @@
 ## 제가 작성했던 리액트 코드 레포
 
 - [무한 스크롤](https://github.com/Seung-wan/react-infinite-scroll-basic)
-- [퀴즈 앱] (https://github.com/Seung-wan/quiz-app)
-- [투두 앱] (https://github.com/Seung-wan/react-todo)
+- [퀴즈 앱](https://github.com/Seung-wan/quiz-app)
+- [투두 앱](https://github.com/Seung-wan/react-todo)
 
 ## custom hook 만들기
 

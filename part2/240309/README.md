@@ -221,38 +221,42 @@ last(arr);
 
 ### 배열에 접근할때
 
-```js
+<details>
+<summary>
+<code style='white-space:pre-wrap'>
 const 거래시간 = [시작_시간, 종료_시간];
 
-거래시간[0];
+거래시간[0];  
 거래시간[1];
-```
+</code>
 
-<div style='background-color:white; white-space:pre-wrap'>
-const 시작_시간 = 거래시간[0]; 
-const 종료_시간 = 거래시간[1];
+</summary>
+
+const 시작시간 = 거래시간[0];  
+const 종료시간 = 거래시간[1];
 
 const [시작_시간, 종료_시간] = 거래시간;
 
-</div>
+</details>
 
 ### 명시적으로 비교해요
 
-```js
+<details>
+<summary>
+<code style="white-space:pre-wrap">
 const questionCount = ...;
-
+<br/>
 if(!questionCount) {
-  return '질문이 없어요.'
+return '질문이 없어요.'
 }
+</code>
 
-```
-
-<div style='background-color:white;'>
+</summary>
 if(questionCount === 0) {
 
 }
 
-</div>
+</details>
 
 ### 리턴값이 많아요
 

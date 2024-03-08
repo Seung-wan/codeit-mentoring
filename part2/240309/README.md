@@ -207,56 +207,39 @@ function usePosts() {
 const arr = [1, 2, 3];
 
 arr[arr.length - 1];
-```
 
-<div style='background-color:white;'>
-<div>
 arr.at(-1);
-</div>
-<div>
-last(arr);
-</div>
 
-</div>
+last(arr);
+```
 
 ### 배열에 접근할때
 
-<details>
-<summary>
-<code style='white-space:pre-wrap'>
+```js
 const 거래시간 = [시작_시간, 종료_시간];
 
-거래시간[0];  
+거래시간[0];
 거래시간[1];
-</code>
 
-</summary>
-
-const 시작시간 = 거래시간[0];  
-const 종료시간 = 거래시간[1];
+const 시작_시간 = 거래시간[0];
+const 종료_시간 = 거래시간[1];
 
 const [시작_시간, 종료_시간] = 거래시간;
-
-</details>
+```
 
 ### 명시적으로 비교해요
 
-<details>
-<summary>
-<code style="white-space:pre-wrap">
+```js
 const questionCount = ...;
-<br/>
-if(!questionCount) {
-return '질문이 없어요.'
-}
-</code>
 
-</summary>
+if(!questionCount) {
+  return '질문이 없어요.'
+}
+
 if(questionCount === 0) {
 
 }
-
-</details>
+```
 
 ### 리턴값이 많아요
 
@@ -265,12 +248,40 @@ const [questions, next, setQuestions, setNext] = useFetchQuestions(
   id,
   questionCount
 );
-```
 
-<div style='background-color:white; white-space:pre-wrap'>
-const {questions, next, setQuestions, setNext} = useFetchQuestions(
+const { questions, next, setQuestions, setNext } = useFetchQuestions(
   id,
   questionCount
 );
+```
 
-</div>
+## React 이야기
+
+### useEffect에 기명 함수를 전달해요
+
+```js
+useEffect(() => {
+  const options = {
+    serverUrl: serverUrl,
+    roomId: roomId,
+  };
+  const connection = createConnection(options);
+  connection.connect();
+  return () => connection.disconnect();
+}, [roomId, serverUrl]);
+
+useEffect(
+  function 채팅룸에_연결한다() {
+    const options = {
+      serverUrl: serverUrl,
+      roomId: roomId,
+    };
+
+    const connection = createConnection(options);
+    connection.connect();
+
+    return () => connection.disconnect();
+  },
+  [roomId, serverUrl]
+);
+```

@@ -93,6 +93,7 @@ function AddPost() {
     {
       onSuccess: () => {
         // 성공 시, 'posts' 쿼리 무효화 및 재패칭
+        // 참고: https://pozafly.github.io/react-query/mutation-after-data-update/
         queryClient.invalidateQueries('posts');
       },
     }
@@ -184,8 +185,20 @@ const { data: projectData } = useQuery(
 ### custom hook
 
 ```js
-function usePosts() {
-  return useQuery('posts', fetchPosts);
+function useGetUsersQuery() {
+  return useQuery({
+    querykey: ['users'],
+    queryFn: userApi.getUsers,
+  });
+}
+
+function usePostUserMutation({data, onSuccess, onError}) {
+  return useMutation({
+    mutationFn: () => userApi.postUser(data)
+    onSuccess,
+    onError
+   }
+  );
 }
 ```
 
@@ -255,6 +268,30 @@ const { questions, next, setQuestions, setNext } = useFetchQuestions(
 );
 ```
 
+### is-\*, has-\*, disabled, readonly,
+
+```js
+const isOpen = ...;
+const hasComputer = ...;
+const disabled = ...;
+const readonly = ...;
+```
+
+### -value, -data
+
+```js
+const inputValue = ...;
+const userData = ...;
+```
+
+### 네이밍 고민하기
+
+```js
+const REGEX = {
+  SPECIAL_CHARS_REGEX: /[!@#$%^&*()_+=[\]{};':"\\|,.<>/?~]/,
+};
+```
+
 ## React 이야기
 
 ### useEffect에 기명 함수를 전달해요
@@ -284,4 +321,22 @@ useEffect(
   },
   [roomId, serverUrl]
 );
+```
+
+### Props 다루기
+
+```js
+<Card title={'에스파짱'} description='짱짱' hasAnimation={true} />
+
+<Card title='에스파짱' description='짱짱' hasAnimation />
+```
+
+### displayName
+
+```js
+const InputText = forwardRef((props, ref) => {
+  return <input type='text' ref={ref}>
+})
+
+InputText.displayName = 'InputText';
 ```

@@ -3,6 +3,8 @@
 ## 목차
 
 - React Query
+- JavaScript 이야기
+- React 이야기
 
 ## React Query
 
@@ -194,3 +196,77 @@ function usePosts() {
 - refetch... 옵션들
 - staleTime
 - cacheTime
+
+---
+
+## JavaScript 이야기
+
+### 배열의 마지막 요소에 접근할 때
+
+```js
+const arr = [1, 2, 3];
+
+arr[arr.length - 1];
+```
+
+<div style='background-color:white;'>
+<div>
+arr.at(-1);
+</div>
+<div>
+last(arr);
+</div>
+
+</div>
+
+### 배열에 접근할때
+
+```js
+const 거래시간 = [시작_시간, 종료_시간];
+
+거래시간[0];
+거래시간[1];
+```
+
+<div style='background-color:white; white-space:pre-wrap'>
+const 시작_시간 = 거래시간[0]; 
+const 종료_시간 = 거래시간[1];
+
+const [시작_시간, 종료_시간] = 거래시간;
+
+</div>
+
+### 명시적으로 비교해요
+
+```js
+const questionCount = ...;
+
+if(!questionCount) {
+  return '질문이 없어요.'
+}
+
+```
+
+<div style='background-color:white;'>
+if(questionCount === 0) {
+
+}
+
+</div>
+
+### 리턴값이 많아요
+
+```js
+const [questions, next, setQuestions, setNext] = useFetchQuestions(
+  id,
+  questionCount
+);
+```
+
+<div style='background-color:white; white-space:pre-wrap'>
+const {questions, next, setQuestions, setNext} = useFetchQuestions(
+  id,
+  questionCount
+);
+
+</div>
